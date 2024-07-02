@@ -1,0 +1,159 @@
+.search-header {
+  inline-size: 100%;
+  block-size: 150px;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+      to top left,
+      oklch(2% 0.05 200 / 0.8),
+      oklch(10% 0.05 200 / 0.65)
+    ),
+    url("/posters/search-poster.webp");
+  background-position: center;
+  background-size: contain;
+  padding-inline: calc(var(--base-padding) * 5);
+
+  h1 {
+    font-size: calc(var(--base-fs) * 3);
+    text-shadow: 10px 5px 10px oklch(5% 0.05 200 / 0.8);
+    letter-spacing: 1px;
+  }
+
+  @media screen and (width > 768px) {
+    block-size: 175px;
+    padding-inline: calc(var(--base-padding) * 3);
+  }
+}
+
+// Search Navigation
+.search-navigation {
+  background-color: var(--nav-container-bg);
+  border-block: 1px solid var(--nav-border);
+
+  ul {
+    list-style-type: none;
+    padding: calc(var(--base-padding) * 2) calc(var(--base-padding) * 5);
+    display: flex;
+    gap: calc(var(--base-gap) * 5);
+    align-items: center;
+
+    a {
+      font-size: calc(var(--base-fs) * 1.2);
+
+      &.active {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  @media screen and (width > 768px) {
+    ul {
+      padding-inline: calc(var(--base-padding) * 3);
+    }
+
+    ul a {
+      font-size: calc(var(--base-fs) * 1.1);
+    }
+  }
+}
+
+// Search Form Section
+.search-form-container {
+  padding-block: calc(var(--base-padding) * 6);
+  display: flex;
+  justify-content: center;
+  padding-inline: calc(var(--base-padding) * 5);
+
+  @media screen and (width > 768px) {
+    padding-inline: calc(var(--base-padding) * 3);
+  }
+}
+
+.search-form {
+  background-color: var(--form-bg);
+  padding: calc(var(--base-padding) * 4) calc(var(--base-padding) * 3);
+  border-radius: calc(var(--base-br) * 0.2);
+  border: 1px solid var(--card-border);
+  display: flex;
+  justify-content: center;
+  inline-size: min(100%, 450px);
+
+  input {
+    padding: calc(var(--base-padding) * 1.5);
+    font-family: inherit;
+    font-size: calc(var(--base-fs) * 1.3);
+    background-color: var(--input-bg);
+    border: none;
+    font-weight: var(--fw-light);
+    border-top-left-radius: calc(var(--base-br) * 1.25);
+    border-bottom-left-radius: calc(var(--base-br) * 1.25);
+    inline-size: 12em;
+
+    &::placeholder {
+      color: var(--placeholder-text);
+    }
+
+    &:focus {
+      outline: 1px solid var(--card-border);
+    }
+  }
+
+  button {
+    padding-inline: calc(var(--base-padding) * 3);
+    background-color: var(--primary-btn-bg);
+    border: none;
+    color: var(--primary-btn-text-color);
+    display: grid;
+    place-items: center;
+    border-top-right-radius: calc(var(--base-br) * 1.25);
+    border-bottom-right-radius: calc(var(--base-br) * 1.25);
+
+    svg {
+      font-size: calc(var(--base-fs) * 1.9);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (480px < width <= 992px) {
+    inline-size: 350px;
+  }
+
+  @media screen and (width > 768px) {
+    input {
+      font-size: calc(var(--base-fs) * 1.15);
+      padding-block: calc(var(--base-padding) * 1.2);
+      inline-size: 17em;
+    }
+
+    button svg {
+      font-size: calc(var(--base-fs) * 1.75);
+    }
+  }
+}
+
+// Cards
+.search-section {
+  .cards {
+    padding-inline: calc(var(--base-padding) * 5);
+    padding-block: calc(var(--base-padding) * 5);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+    grid-template-rows: auto;
+    gap: calc(var(--base-gap) * 4);
+
+    h2 {
+      grid-row: 1 / 5;
+      text-align: center;
+      font-size: calc(var(--base-fs) * 2.5);
+      color: var(--text-2);
+    }
+
+    @media screen and (width > 768px) {
+      padding-inline: calc(var(--base-padding) * 3);
+      gap: calc(var(--base-gap) * 3);
+    }
+  }
+}

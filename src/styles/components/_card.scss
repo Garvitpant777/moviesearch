@@ -1,0 +1,80 @@
+.card {
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: calc(var(--base-br) * 0.25);
+  transition: scale 300ms ease, translate 300ms ease;
+
+  &-header img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: calc(var(--base-br) * 0.25);
+    border: 2px solid var(--card-border);
+  }
+
+  &-body {
+    padding-inline: calc(var(--base-padding) * 1.25);
+    padding-block-end: calc(var(--base-padding) * 1.25);
+    background-image: linear-gradient(
+      to top,
+      oklch(5% 0.05 200 / 0.9),
+      oklch(10% 0.05 200 / 0.5)
+    );
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: calc(var(--base-padding) * 1.5);
+    clip-path: polygon(
+      0 var(--y, 100%),
+      100% var(--y, 100%),
+      100% 100%,
+      0 100%
+    );
+    transition: clip-path 300ms ease 50ms;
+
+    h4 {
+      font-size: calc(var(--base-fs) * 1.3);
+      line-height: calc(var(--base-lh) * 0.8);
+      font-weight: var(--fw-medium);
+      text-wrap: balance;
+    }
+
+    p {
+      font-size: var(--base-fs);
+      color: var(--text-1);
+      font-weight: var(--fw-light);
+    }
+
+    .rating {
+      span {
+        margin-left: calc(var(--base-margin) * 0.5);
+      }
+    }
+  }
+
+  &:hover {
+    scale: 1.1;
+    translate: z 20px;
+    z-index: 1;
+
+    .card-body {
+      --y: 0;
+    }
+  }
+
+  @media screen and (width > 992px) {
+    &-body {
+      h4 {
+        font-size: var(--base-fs);
+      }
+
+      p {
+        font-size: calc(var(--base-fs) * 0.8);
+      }
+    }
+  }
+}
